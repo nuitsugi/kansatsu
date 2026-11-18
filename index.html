@@ -66,7 +66,7 @@ footer{margin:18px 16px 0;font-size:12px;color:#4f6675;border-top:1px solid var(
 <div><span class="k">状態</span><span class="v">展示中（お迎え先募集中）</span></div>
 <div><span class="k">観察日</span><span class="v">2026年11月18日</span></div>
 </div>
-<div style="text-align:right;margin:8px 16px 0"><span style="display:inline-block;border:2px solid var(--red);color:var(--red);font-size:12px;padding:2px 7px;transform:rotate(-5deg);letter-spacing:.3em;font-family:sans-serif">見ました</span></div>
+<div style="text-align:right;margin:8px 16px 0"><button type="button" id="stamp" aria-pressed="false" title="タップすると色が変わります" style="display:inline-block;border:2px solid var(--red);color:var(--red);background:transparent;font-size:12px;padding:2px 7px;transform:rotate(-5deg);letter-spacing:.3em;font-family:sans-serif;cursor:pointer;transition:background .25s,color .25s">見ました</button></div>
 
 <div class="contact"><div class="ct2">このぬいぐるみについて問い合わせる</div><div class="row">Instagram　<a href="https://www.instagram.com/nuitsugi/" target="_blank" rel="noopener">instagram.com/nuitsugi</a>（DM）</div><div class="row">メール　<a href="mailto:contact@nuitsugi.com">contact@nuitsugi.com</a></div></div>
 </div>
@@ -98,5 +98,7 @@ viewer.addEventListener('pointerup',()=>drag=null);
 viewer.addEventListener('pointercancel',()=>drag=null);
 viewer.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(idx+1);if(e.key==='ArrowLeft')show(idx-1);});
 FRAMES.forEach(s=>{const p=new Image();p.src=s;});
+const stamp=document.getElementById('stamp');
+if(stamp){stamp.addEventListener('click',()=>{stamp.style.background='var(--red)';stamp.style.color='#fdf6ec';stamp.setAttribute('aria-pressed','true');},{once:true});}
 show(0);
 </script></body></html>
